@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ana Beatriz | Control & Automation Engineer</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- ESTILO GERAL --- */
+        :root {
+            --bg-color: #FFFFFF;
+            --text-main: #1A1A1A;
+            --text-light: #666666;
+            --border-color: #E0E0E0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Playfair Display', serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            
+            /* Ajustes para o layout do rodapé */
+            display: flex;
+            flex-direction: column; 
+            align-items: center;    
+            min-height: 100vh;      
+        }
+
+        /* --- LAYOUT EM 3 COLUNAS --- */
+        .layout-grid {
+            display: grid;
+            grid-template-columns: 280px 1fr 60px;
+            gap: 40px;
+            max-width: 1100px;
+            width: 100%;
+            margin: 40px auto;
+            padding: 0 20px;
+            box-sizing: border-box; 
+        }
+
+        /* --- BARRA LATERAL ESQUERDA (PERFIL) --- */
+        .sidebar-left {
+            border-right: 1px solid var(--border-color);
+            padding-right: 30px;
+        }
+
+        .profile-pic {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 2px solid var(--border-color);
+        }
+
+        .sidebar-left h2 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: var(--text-main);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+
+        .sidebar-left p, .sidebar-left ul {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin: 5px 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        .sidebar-left li {
+            margin-bottom: 8px;
+        }
+
+        .sidebar-left a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .sidebar-left a:hover {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        /* --- CENTRO (CONTEÚDO PRINCIPAL) --- */
+        .content {
+            padding-top: 10px;
+        }
+
+        .content h1 {
+            font-size: 3rem;
+            margin: 0 0 5px 0;
+            font-weight: 700;
+        }
+
+        .content .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            font-style: italic;
+            margin-top: 0;
+            margin-bottom: 30px;
+        }
+
+        .content h3 {
+            font-size: 1.5rem;
+            margin-top: 40px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 5px;
+        }
+
+        .project-item {
+            margin-bottom: 35px;
+        }
+
+        .project-item h4 {
+            font-size: 1.2rem;
+            margin: 0 0 5px 0;
+        }
+
+        .project-date {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .project-item p {
+            color: var(--text-main);
+            font-size: 1rem;
+            text-align: justify;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 5px 15px;
+            border: 1px solid var(--text-light);
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--text-main);
+            color: var(--bg-color);
+        }
+
+        /* --- BARRA LATERAL DIREITA (ÍCONES) --- */
+        .sidebar-right {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+            gap: 35px;
+            border-left: 1px solid var(--border-color);
+        }
+
+        .sidebar-right i {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .sidebar-right i:hover {
+            color: var(--text-main);
+            transform: scale(1.2);
+        }
+
+        /* --- RODAPÉ CENTRALIZADO --- */
+        footer {
+            width: 100%;
+            margin-top: auto; 
+            padding: 20px 0;
+            border-top: 1px solid var(--border-color); 
+        }
+        
+        /* Ajuste para ecrãs menores (telemóveis) */
+        @media (max-width: 800px) {
+            .layout-grid {
+                grid-template-columns: 1fr;
+            }
+            .sidebar-left, .sidebar-right {
+                border: none;
+            }
+            .sidebar-right {
+                flex-direction: row;
+                justify-content: center;
+                border-top: 1px solid var(--border-color);
+                padding-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="layout-grid">
+        
+        <aside class="sidebar-left">
+            <img src="me.jpeg" alt="Ana Beatriz" class="profile-pic">
+            
+            <h2>Academic Background</h2>
+            <p><strong>Control & Automation Engineering Student</strong></p>
+            <p>Federal University of Bahia (UFBA)</p>
+            <p>Expected graduation: 2027</p>
+
+            <h2>Links</h2>
+            <ul>
+                <li><a href="https://www.linkedin.com/in/ana-beatriz-alves-hougaz" target="_blank">LinkedIn</a></li>
+                <li><a href="https://github.com/AnaHougaz" target="_blank">GitHub</a></li>
+                <li><a href="https://lattes.cnpq.br/5312213893377587" target="_blank">Currículo Lattes</a></li>
+                <li><a href="mailto:ana.hougaz@ufba.br" target="_blank">E-mail</a></li>
+            </ul>
+
+            <h2>Languages</h2>
+            <ul>
+                <li>Portuguese (Native)</li>
+                <li>English (Advanced)</li>
+            </ul>
+
+            <h2>Research Lines</h2>
+            <ul>
+                <li>Nonlinear Dynamics Modeling</li>
+                <li>UAV Systems</li>
+                <li>Photogrammetry</li>
+                <li>Computer Vision</li>
+                <li>Deep learning</li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <h1>Ana Beatriz Alves Hougaz</h1>
+            <p class="subtitle">Control & Automation Engineering - Computer Vision</p>
+
+            <p style="text-align: justify; font-weight: 500;">
+                Modeling and Control of dynamic systems | Mathematical control theory | Deep Learning | Computer Vision | Photogrammetry
+            </p>
+
+            <h3>Publications</h3>
+
+            <div class="project-item">
+                <h4>UAV-Driven Maritime Object Detection</h4>
+                <div class="project-date">SENAI CIMATEC | UAV Systems & AI | 2025</div>
+                <p>Co-author of the published article "UAV-Driven Maritime Object Detection and Classification: Literature Review of AI Models, Data and Performance" at the XI SIINTEC (2025).</p>
+                <p><strong>DOI:</strong> <a href="https://doity.com.br/anais/senaicimatec/trabalho/473432" target="_blank" style="text-decoration: underline; color: var(--text-main);">https://doity.com.br/anais/senaicimatec/trabalho/473432</a></p>
+            </div>
+
+            <div class="project-item">
+                <h4>Multi-Task Learning on Panoramic Radiographs</h4>
+                <div class="project-date">IvisionLab (UFBA) | Deep Learning | 2024</div>
+                <p>Co-author of the published article "Multi-Task Learning Based on Log Dynamic Loss Weighting for Sex Classification and Age Estimation on Panoramic Radiographs".</p>
+                <p><strong>DOI:</strong> <a href="https://www.scitepress.org/Link.aspx?doi=10.5220/0012317100003660" target="_blank" style="text-decoration: underline; color: var(--text-main);">https://www.scitepress.org/Link.aspx?doi=10.5220/0012317100003660</a></p>
+            </div>
+
+            <div class="project-item">
+                <h4>Sex Estimation on Panoramic Dental Radiographs</h4>
+                <div class="project-date">IvisionLab (UFBA) | Deep Learning & Healthcare | 2023</div>
+                <p>Author of the published article "Sex estimation on panoramic dental radiographs: A methodological approach" at the XXIII Simpósio Brasileiro de Computação Aplicada à Saúde (SBCAS 2023).</p>
+                <p><strong>DOI:</strong> <a href="https://doi.org/10.5753/sbcas.2023.229563"target="_blank" style="text-decoration: underline; color: var(--text-main);">https://doi.org/10.5753/sbcas.2023.229563</a></p></p>
+            </div>
+
+            <h3>Engineering & Control Projects</h3>
+
+            <div class="project-item">
+                <h4>Active Quarter-Car Suspension System</h4>
+                <div class="project-date">MATLAB & Simulink | 2025</div>
+                <p>Mathematical modeling and simulation of an actively actuated vehicle suspension.</p>
+                <a href="https://github.com/AnaHougaz/Active_suspension" class="btn" target="_blank">View Repository</a>
+            </div>
+
+            <div class="project-item">
+                <h4>Coupled Two-Tank System Dynamics</h4>
+                <div class="project-date">Python, SciPy & SymPy | 2024</div>
+                <p>Derived nonlinear differential equations for a classic hydraulic benchmark.</p>
+                <a href="https://github.com/AnaHougaz/SEU-REPOSITORIO-AQUI" class="btn" target="_blank">View Repository</a>
+            </div>
+            
+            
+        </main>
+
+        <aside class="sidebar-right">
+            <i class="fas fa-laptop-code" title="Software Development"></i>
+            <i class="fas fa-plane-up" title="Aerospace / Flight Control"></i>
+            <i class="fas fa-robot" title="Robotics & Automation"></i>
+            <i class="fas fa-car-side" title="Vehicle Dynamics"></i>
+            <i class="fas fa-chart-line" title="System Modeling"></i>
+        </aside>
+
+    </div> 
+    
+    <footer>
+        <p style="text-align: center; font-size: 0.9rem; color: #666; margin: 0;">
+            © 2026 Ana Beatriz. All rights reserved
+        </p>
+    </footer>
+
+</body>
+</html>

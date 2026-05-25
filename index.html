@@ -35,6 +35,39 @@
             min-height: 100vh;      
         }
 
+        /* --- SISTEMA DE IDIOMA --- */
+        body.lang-en-active .lang-pt { display: none !important; }
+        body.lang-pt-active .lang-en { display: none !important; }
+
+        .lang-switch {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+        }
+
+        .lang-btn {
+            background: none;
+            border: 1px solid var(--border-color);
+            padding: 4px 12px;
+            font-family: inherit;
+            cursor: pointer;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            transition: all 0.3s;
+        }
+
+        .lang-btn:hover {
+            border-color: var(--text-main);
+            color: var(--text-main);
+        }
+
+        .lang-btn.active {
+            background-color: var(--text-main);
+            color: var(--bg-color);
+            border-color: var(--text-main);
+        }
+
         /* --- LAYOUT EM 3 COLUNAS --- */
         .layout-grid {
             display: grid;
@@ -207,17 +240,24 @@
         }
     </style>
 </head>
-<body>
+<body class="lang-en-active">
 
     <div class="layout-grid">
         
         <aside class="sidebar-left">
             <img src="me.jpeg" alt="Ana Beatriz" class="profile-pic">
             
-            <h2>Academic Background</h2>
-            <p><strong>Control & Automation Engineering Student</strong></p>
-            <p>Federal University of Bahia (UFBA)</p>
-            <p>Expected graduation: 2027</p>
+            <h2 class="lang-en">Academic Background</h2>
+            <h2 class="lang-pt">Formação Acadêmica</h2>
+            
+            <p class="lang-en"><strong>Control & Automation Engineering Student</strong></p>
+            <p class="lang-pt"><strong>Estudante de Engenharia de Controle e Automação</strong></p>
+            
+            <p class="lang-en">Federal University of Bahia (UFBA)</p>
+            <p class="lang-pt">Universidade Federal da Bahia (UFBA)</p>
+            
+            <p class="lang-en">Expected graduation: 2027</p>
+            <p class="lang-pt">Previsão de formatura: 2027</p>
 
             <h2>Links</h2>
             <ul>
@@ -227,69 +267,123 @@
                 <li><a href="mailto:ana.hougaz@ufba.br" target="_blank">E-mail</a></li>
             </ul>
 
-            <h2>Languages</h2>
+            <h2 class="lang-en">Languages</h2>
+            <h2 class="lang-pt">Idiomas</h2>
             <ul>
-                <li>Portuguese (Native)</li>
-                <li>English (Advanced)</li>
+                <li class="lang-en">Portuguese (Native)</li>
+                <li class="lang-pt">Português (Nativo)</li>
+                <li class="lang-en">English (Advanced)</li>
+                <li class="lang-pt">Inglês (Avançado)</li>
             </ul>
 
-            <h2>Research Lines</h2>
-            <ul>
+            <h2 class="lang-en">Research Lines</h2>
+            <h2 class="lang-pt">Linhas de Pesquisa</h2>
+            <ul class="lang-en">
                 <li>Nonlinear Dynamics Modeling</li>
                 <li>UAV Systems</li>
                 <li>Photogrammetry</li>
                 <li>Computer Vision</li>
                 <li>Deep learning</li>
             </ul>
+            <ul class="lang-pt">
+                <li>Modelagem de Dinâmica Não-Linear</li>
+                <li>Sistemas de VANTs</li>
+                <li>Fotogrametria</li>
+                <li>Visão Computacional</li>
+                <li>Deep Learning</li>
+            </ul>
         </aside>
 
         <main class="content">
-            <h1>Ana Beatriz Alves Hougaz</h1>
-            <p class="subtitle">Control & Automation Engineering - Computer Vision</p>
+            <div class="lang-switch">
+                <button id="btn-en" class="lang-btn active" onclick="switchLang('en')">EN</button>
+                <button id="btn-pt" class="lang-btn" onclick="switchLang('pt')">PT</button>
+            </div>
 
-            <p style="text-align: justify; font-weight: 500;">
+            <h1>Ana Beatriz Alves Hougaz</h1>
+            
+            <p class="subtitle lang-en">Control & Automation Engineering - Computer Vision</p>
+            <p class="subtitle lang-pt">Engenharia de Controle e Automação - Visão Computacional</p>
+
+            <p class="lang-en" style="text-align: justify; font-weight: 500;">
                 Modeling and Control of dynamic systems | Mathematical control theory | Deep Learning | Computer Vision | Photogrammetry
             </p>
+            <p class="lang-pt" style="text-align: justify; font-weight: 500;">
+                Modelagem e Controle de sistemas dinâmicos | Teoria de controle matemático | Deep Learning | Visão Computacional | Fotogrametria
+            </p>
 
-            <h3>Publications</h3>
+            <h3 class="lang-en">Publications</h3>
+            <h3 class="lang-pt">Publicações</h3>
 
             <div class="project-item">
                 <h4>UAV-Driven Maritime Object Detection</h4>
-                <div class="project-date">SENAI CIMATEC | UAV Systems & AI | 2025</div>
-                <p>Co-author of the published article "UAV-Driven Maritime Object Detection and Classification: Literature Review of AI Models, Data and Performance" at the XI SIINTEC (2025).</p>
+                <div class="project-date lang-en">SENAI CIMATEC | UAV Systems & AI | 2025</div>
+                <div class="project-date lang-pt">SENAI CIMATEC | Sistemas de VANTs & IA | 2025</div>
+                <p class="lang-en">Co-author of the published article "UAV-Driven Maritime Object Detection and Classification: Literature Review of AI Models, Data and Performance" at the XI SIINTEC (2025).</p>
+                <p class="lang-pt">Coautora do artigo publicado "UAV-Driven Maritime Object Detection and Classification: Literature Review of AI Models, Data and Performance" no XI SIINTEC (2025).</p>
                 <p><strong>DOI:</strong> <a href="https://doity.com.br/anais/senaicimatec/trabalho/473432" target="_blank" style="text-decoration: underline; color: var(--text-main);">https://doity.com.br/anais/senaicimatec/trabalho/473432</a></p>
             </div>
 
             <div class="project-item">
                 <h4>Multi-Task Learning on Panoramic Radiographs</h4>
                 <div class="project-date">IvisionLab (UFBA) | Deep Learning | 2024</div>
-                <p>Co-author of the published article "Multi-Task Learning Based on Log Dynamic Loss Weighting for Sex Classification and Age Estimation on Panoramic Radiographs".</p>
+                <p class="lang-en">Co-author of the published article "Multi-Task Learning Based on Log Dynamic Loss Weighting for Sex Classification and Age Estimation on Panoramic Radiographs".</p>
+                <p class="lang-pt">Coautora do artigo publicado "Multi-Task Learning Based on Log Dynamic Loss Weighting for Sex Classification and Age Estimation on Panoramic Radiographs".</p>
                 <p><strong>DOI:</strong> <a href="https://www.scitepress.org/Link.aspx?doi=10.5220/0012317100003660" target="_blank" style="text-decoration: underline; color: var(--text-main);">https://www.scitepress.org/Link.aspx?doi=10.5220/0012317100003660</a></p>
             </div>
 
             <div class="project-item">
                 <h4>Sex Estimation on Panoramic Dental Radiographs</h4>
-                <div class="project-date">IvisionLab (UFBA) | Deep Learning & Healthcare | 2023</div>
-                <p>Author of the published article "Sex estimation on panoramic dental radiographs: A methodological approach" at the XXIII Simpósio Brasileiro de Computação Aplicada à Saúde (SBCAS 2023).</p>
-                <p><strong>DOI:</strong> <a href="https://doi.org/10.5753/sbcas.2023.229563"target="_blank" style="text-decoration: underline; color: var(--text-main);">https://doi.org/10.5753/sbcas.2023.229563</a></p></p>
+                <div class="project-date lang-en">IvisionLab (UFBA) | Deep Learning & Healthcare | 2023</div>
+                <div class="project-date lang-pt">IvisionLab (UFBA) | Deep Learning & Saúde | 2023</div>
+                <p class="lang-en">Author of the published article "Sex estimation on panoramic dental radiographs: A methodological approach" at the XXIII Simpósio Brasileiro de Computação Aplicada à Saúde (SBCAS 2023).</p>
+                <p class="lang-pt">Autora do artigo publicado "Sex estimation on panoramic dental radiographs: A methodological approach" no XXIII Simpósio Brasileiro de Computação Aplicada à Saúde (SBCAS 2023).</p>
+                <p><strong>DOI:</strong> <a href="https://doi.org/10.5753/sbcas.2023.229563"target="_blank" style="text-decoration: underline; color: var(--text-main);">https://doi.org/10.5753/sbcas.2023.229563</a></p>
             </div>
 
-            <h3>Engineering & Control Projects</h3>
+            <h3 class="lang-en">Academic & Lab Experience</h3>
+            <h3 class="lang-pt">Experiência Acadêmica e de Laboratório</h3>
 
             <div class="project-item">
-                <h4>Active Quarter-Car Suspension System</h4>
+                <h4 class="lang-en">Volunteer Researcher at LaR (Robotics Laboratory)</h4>
+                <h4 class="lang-pt">Pesquisadora Voluntária no LaR (Laboratório de Robótica)</h4>
+                <div class="project-date lang-en">Escola Politécnica (UFBA) | Robotics & Automation | 2026.2 - Present</div>
+                <div class="project-date lang-pt">Escola Politécnica (UFBA) | Robótica e Automação | 2026.2 - Atual</div>
+                <p class="lang-en">Currently collaborating as a volunteer researcher at the Robotics Laboratory, exploring potential research avenues and defining the core project framework.</p>
+                <p class="lang-pt">Atualmente colaborando como pesquisadora voluntária no Laboratório de Robótica, explorando potenciais caminhos de pesquisa e definindo o escopo do projeto principal.</p>
+            </div>
+
+            <div class="project-item">
+                <h4 class="lang-en">Manufacturing Processes Teaching Assistant</h4>
+                <h4 class="lang-pt">Monitoria de Processos de Fabricação</h4>
+                <div class="project-date lang-en">UFBA | Academic Monitor (Scholarship Holder) | 2026.1</div>
+                <div class="project-date lang-pt">UFBA | Monitoria Acadêmica (Bolsista) | 2026.1</div>
+                <p class="lang-en">Provided guidance and academic support to undergraduate students in both theoretical and practical manufacturing concepts, holding a monitor scholarship.</p>
+                <p class="lang-pt">Prestação de orientação e suporte acadêmico a alunos de graduação em conceitos teóricos e práticos de fabricação, atuando como monitora bolsista.</p>
+            </div>
+
+            <h3 class="lang-en">Engineering & Control Projects</h3>
+            <h3 class="lang-pt">Projetos de Engenharia e Controle</h3>
+
+            <div class="project-item">
+                <h4 class="lang-en">Active Quarter-Car Suspension System</h4>
+                <h4 class="lang-pt">Sistema de Suspensão Ativa de Quarto de Carro</h4>
                 <div class="project-date">MATLAB & Simulink | 2025</div>
-                <p>Mathematical modeling and simulation of an actively actuated vehicle suspension.</p>
-                <a href="https://github.com/AnaHougaz/Active_suspension" class="btn" target="_blank">View Repository</a>
+                <p class="lang-en">Mathematical modeling and simulation of an actively actuated vehicle suspension.</p>
+                <p class="lang-pt">Modelagem matemática e simulação de uma suspensão veicular com atuação ativa.</p>
+                <a href="https://github.com/AnaHougaz/Active_suspension" class="btn lang-en" target="_blank">View Repository</a>
+                <a href="https://github.com/AnaHougaz/Active_suspension" class="btn lang-pt" target="_blank">Ver Repositório</a>
             </div>
 
             <div class="project-item">
-                <h4>Coupled Two-Tank System Dynamics</h4>
+                <h4 class="lang-en">Coupled Two-Tank System Dynamics</h4>
+                <h4 class="lang-pt">Dinâmica de Sistema de Dois Tanques Acoplados</h4>
                 <div class="project-date">Python, SciPy & SymPy | 2024</div>
-                <p>Derived nonlinear differential equations for a classic hydraulic benchmark.</p>
-                <a href="https://github.com/AnaHougaz/Nonlinear-Dynamic-Modeling-and-Stability-Analysis-of-a-Coupled-Tank-System" class="btn" target="_blank">View Repository</a>
+                <p class="lang-en">Derived nonlinear differential equations for a classic hydraulic benchmark.</p>
+                <p class="lang-pt">Dedução de equações diferenciais não-lineares para um benchmark hidráulico clássico.</p>
+                <a href="https://github.com/AnaHougaz/Nonlinear-Dynamic-Modeling-and-Stability-Analysis-of-a-Coupled-Tank-System" class="btn lang-en" target="_blank">View Repository</a>
+                <a href="https://github.com/AnaHougaz/Nonlinear-Dynamic-Modeling-and-Stability-Analysis-of-a-Coupled-Tank-System" class="btn lang-pt" target="_blank">Ver Repositório</a>
             </div>
-            
             
         </main>
 
@@ -304,10 +398,29 @@
     </div> 
     
     <footer>
-        <p style="text-align: center; font-size: 0.9rem; color: #666; margin: 0;">
+        <p class="lang-en" style="text-align: center; font-size: 0.9rem; color: #666; margin: 0;">
             © 2026 Ana Beatriz. All rights reserved
         </p>
+        <p class="lang-pt" style="text-align: center; font-size: 0.9rem; color: #666; margin: 0;">
+            © 2026 Ana Beatriz. Todos os direitos reservados
+        </p>
     </footer>
+
+    <script>
+        function switchLang(lang) {
+            if (lang === 'pt') {
+                document.body.classList.remove('lang-en-active');
+                document.body.classList.add('lang-pt-active');
+                document.getElementById('btn-pt').classList.add('active');
+                document.getElementById('btn-en').classList.remove('active');
+            } else {
+                document.body.classList.remove('lang-pt-active');
+                document.body.classList.add('lang-en-active');
+                document.getElementById('btn-en').classList.add('active');
+                document.getElementById('btn-pt').classList.remove('active');
+            }
+        }
+    </script>
 
 </body>
 </html>

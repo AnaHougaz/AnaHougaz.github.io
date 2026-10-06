@@ -1,426 +1,1464 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ana Beatriz | Control & Automation Engineer</title>
-    
+
+    <title>Ana Beatriz Alves Hougaz</title>
+
+    <!-- =====================================================
+         FONTES
+    ====================================================== -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+
+    <!-- =====================================================
+         FONT AWESOME
+    ====================================================== -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 
     <style>
-        /* --- ESTILO GERAL --- */
+
+        /* =====================================================
+           CORES E CONFIGURAÇÕES GERAIS
+        ====================================================== */
+
         :root {
+
             --bg-color: #FFFFFF;
+
             --text-main: #1A1A1A;
-            --text-light: #666666;
+
+            --text-light: #707070;
+
             --border-color: #E0E0E0;
+
         }
+
+
+        * {
+            box-sizing: border-box;
+        }
+
 
         body {
+
             background-color: var(--bg-color);
+
             color: var(--text-main);
-            font-family: 'Playfair Display', serif;
+
+            font-family: 'Inter', sans-serif;
+
             margin: 0;
+
             padding: 0;
+
             line-height: 1.6;
-            
-            /* Ajustes para o layout do rodapé */
+
+            min-height: 100vh;
+
             display: flex;
-            flex-direction: column; 
-            align-items: center;    
-            min-height: 100vh;      
+
+            flex-direction: column;
+
+            align-items: center;
+
         }
 
-        /* --- SISTEMA DE IDIOMA --- */
-        body.lang-en-active .lang-pt { display: none !important; }
-        body.lang-pt-active .lang-en { display: none !important; }
+
+        /* =====================================================
+           IDIOMAS
+        ====================================================== */
+
+        body.lang-en-active .lang-pt {
+            display: none !important;
+        }
+
+
+        body.lang-pt-active .lang-en {
+            display: none !important;
+        }
+
+
+        /* =====================================================
+           BOTÕES DE IDIOMA
+        ====================================================== */
 
         .lang-switch {
+
             display: flex;
-            gap: 10px;
+
+            gap: 8px;
+
             justify-content: flex-end;
-            margin-bottom: 20px;
+
+            margin-bottom: 25px;
+
         }
+
 
         .lang-btn {
+
             background: none;
+
             border: 1px solid var(--border-color);
-            padding: 4px 12px;
+
+            padding: 5px 12px;
+
             font-family: inherit;
+
             cursor: pointer;
-            font-size: 0.8rem;
+
+            font-size: 0.78rem;
+
             color: var(--text-light);
+
+            border-radius: 4px;
+
             transition: all 0.3s;
+
         }
+
 
         .lang-btn:hover {
+
             border-color: var(--text-main);
+
             color: var(--text-main);
+
         }
+
 
         .lang-btn.active {
+
             background-color: var(--text-main);
+
             color: var(--bg-color);
+
             border-color: var(--text-main);
+
         }
 
-        /* --- LAYOUT EM 3 COLUNAS --- */
+
+        /* =====================================================
+           ESTRUTURA PRINCIPAL
+        ====================================================== */
+
         .layout-grid {
+
             display: grid;
-            grid-template-columns: 280px 1fr 60px;
-            gap: 40px;
-            max-width: 1100px;
+
+            grid-template-columns: 250px 1fr 55px;
+
+            gap: 45px;
+
+            max-width: 1150px;
+
             width: 100%;
+
             margin: 40px auto;
-            padding: 0 20px;
-            box-sizing: border-box; 
+
+            padding: 0 25px;
+
         }
 
-        /* --- BARRA LATERAL ESQUERDA (PERFIL) --- */
+
+        /* =====================================================
+           BARRA LATERAL ESQUERDA
+        ====================================================== */
+
         .sidebar-left {
+
             border-right: 1px solid var(--border-color);
-            padding-right: 30px;
+
+            padding-right: 28px;
+
         }
+
 
         .profile-pic {
-            width: 160px;
-            height: 160px;
+
+            width: 150px;
+
+            height: 150px;
+
             border-radius: 50%;
+
             object-fit: cover;
+
             margin-bottom: 20px;
+
             border: 2px solid var(--border-color);
+
         }
+
 
         .sidebar-left h2 {
-            font-size: 1.2rem;
-            margin-bottom: 5px;
+
+            font-size: 1rem;
+
+            margin-top: 28px;
+
+            margin-bottom: 8px;
+
             color: var(--text-main);
+
             border-bottom: 1px solid var(--border-color);
-            padding-bottom: 5px;
-            margin-top: 30px;
+
+            padding-bottom: 6px;
+
         }
 
-        .sidebar-left p, .sidebar-left ul {
-            font-size: 0.9rem;
+
+        .sidebar-left p,
+        .sidebar-left ul {
+
+            font-size: 0.86rem;
+
             color: var(--text-light);
+
             margin: 5px 0;
+
             padding: 0;
-            list-style-type: none;
+
+            list-style: none;
+
         }
+
 
         .sidebar-left li {
+
             margin-bottom: 8px;
+
         }
+
 
         .sidebar-left a {
+
             color: var(--text-light);
+
             text-decoration: none;
+
             transition: color 0.3s;
+
         }
+
 
         .sidebar-left a:hover {
+
             color: var(--text-main);
-            font-weight: 600;
+
         }
 
-        /* --- CENTRO (CONTEÚDO PRINCIPAL) --- */
-        .content {
-            padding-top: 10px;
+
+        .certificate-link {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 7px;
+
         }
+
+
+        /* =====================================================
+           CONTEÚDO PRINCIPAL
+        ====================================================== */
+
+        .content {
+
+            padding-top: 5px;
+
+        }
+
 
         .content h1 {
-            font-size: 3rem;
-            margin: 0 0 5px 0;
+
+            font-size: 2.7rem;
+
+            margin: 0 0 35px 0;
+
             font-weight: 700;
+
+            letter-spacing: -1.2px;
+
         }
 
-        .content .subtitle {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            font-style: italic;
-            margin-top: 0;
-            margin-bottom: 30px;
-        }
 
         .content h3 {
-            font-size: 1.5rem;
-            margin-top: 40px;
-            margin-bottom: 10px;
+
+            font-size: 1.3rem;
+
+            margin-top: 45px;
+
+            margin-bottom: 28px;
+
             border-bottom: 1px solid var(--border-color);
-            padding-bottom: 5px;
+
+            padding-bottom: 8px;
+
         }
 
-        .project-item {
-            margin-bottom: 35px;
+
+        /* =====================================================
+           TIMELINE
+        ====================================================== */
+
+        .timeline {
+
+            position: relative;
+
+            margin: 10px 0 20px 7px;
+
+            padding-left: 28px;
+
         }
 
-        .project-item h4 {
-            font-size: 1.2rem;
-            margin: 0 0 5px 0;
+
+        .timeline::before {
+
+            content: "";
+
+            position: absolute;
+
+            left: 4px;
+
+            top: 7px;
+
+            bottom: 7px;
+
+            width: 1px;
+
+            background-color: var(--border-color);
+
         }
 
-        .project-date {
-            font-size: 0.85rem;
-            color: var(--text-light);
-            font-style: italic;
+
+        .timeline-item {
+
+            position: relative;
+
+            margin-bottom: 38px;
+
+        }
+
+
+        .timeline-item:last-child {
+
             margin-bottom: 10px;
+
         }
 
-        .project-item p {
-            color: var(--text-main);
-            font-size: 1rem;
-            text-align: justify;
-            margin-top: 5px;
-            margin-bottom: 5px;
+
+        .timeline-item::before {
+
+            content: "";
+
+            position: absolute;
+
+            left: -29px;
+
+            top: 5px;
+
+            width: 9px;
+
+            height: 9px;
+
+            background-color: var(--bg-color);
+
+            border: 2px solid var(--text-main);
+
+            border-radius: 50%;
+
         }
+
+
+        .timeline-date {
+
+            font-size: 0.8rem;
+
+            color: var(--text-light);
+
+            margin-bottom: 5px;
+
+        }
+
+
+        .timeline-title {
+
+            font-size: 1.05rem;
+
+            font-weight: 600;
+
+            margin: 0 0 3px 0;
+
+            line-height: 1.45;
+
+        }
+
+
+        .timeline-role {
+
+            font-size: 0.9rem;
+
+            color: var(--text-light);
+
+            margin: 0 0 9px 0;
+
+        }
+
+
+        .timeline-description {
+
+            font-size: 0.9rem;
+
+            color: var(--text-main);
+
+            margin: 0;
+
+        }
+
+
+        .timeline-description p {
+
+            margin: 0 0 8px 0;
+
+        }
+
+
+        .timeline-description ul {
+
+            margin: 8px 0 0 18px;
+
+            padding: 0;
+
+        }
+
+
+        .timeline-description li {
+
+            margin-bottom: 5px;
+
+        }
+
+
+        /* =====================================================
+           BOTÕES DE PUBLICAÇÃO
+        ====================================================== */
 
         .btn {
+
             display: inline-block;
-            margin-top: 10px;
-            padding: 5px 15px;
+
+            margin-top: 8px;
+
+            padding: 5px 13px;
+
             border: 1px solid var(--text-light);
+
             color: var(--text-main);
+
             text-decoration: none;
-            font-size: 0.9rem;
+
+            font-size: 0.8rem;
+
+            border-radius: 4px;
+
             transition: all 0.3s;
+
         }
+
 
         .btn:hover {
+
             background-color: var(--text-main);
+
             color: var(--bg-color);
+
         }
 
-        /* --- BARRA LATERAL DIREITA (ÍCONES) --- */
+
+        /* =====================================================
+           BARRA LATERAL DIREITA
+        ====================================================== */
+
         .sidebar-right {
+
             display: flex;
+
             flex-direction: column;
+
             align-items: center;
+
             padding-top: 20px;
-            gap: 35px;
+
+            gap: 32px;
+
             border-left: 1px solid var(--border-color);
+
         }
+
 
         .sidebar-right i {
-            font-size: 1.5rem;
+
+            font-size: 1.35rem;
+
             color: var(--text-light);
-            transition: transform 0.3s, color 0.3s;
+
+            transition: transform 0.3s,
+                        color 0.3s;
+
         }
+
 
         .sidebar-right i:hover {
+
             color: var(--text-main);
-            transform: scale(1.2);
+
+            transform: scale(1.15);
+
         }
 
-        /* --- RODAPÉ CENTRALIZADO --- */
+
+        /* =====================================================
+           RODAPÉ
+        ====================================================== */
+
         footer {
+
             width: 100%;
-            margin-top: auto; 
+
+            margin-top: auto;
+
             padding: 20px 0;
-            border-top: 1px solid var(--border-color); 
+
+            border-top: 1px solid var(--border-color);
+
         }
-        
-        /* Ajuste para ecrãs menores (telemóveis) */
-        @media (max-width: 800px) {
+
+
+        /* =====================================================
+           RESPONSIVIDADE
+        ====================================================== */
+
+        @media (max-width: 850px) {
+
             .layout-grid {
+
                 grid-template-columns: 1fr;
+
+                gap: 25px;
+
             }
-            .sidebar-left, .sidebar-right {
-                border: none;
+
+
+            .sidebar-left {
+
+                border-right: none;
+
+                padding-right: 0;
+
             }
+
+
             .sidebar-right {
+
                 flex-direction: row;
+
                 justify-content: center;
+
+                border-left: none;
+
                 border-top: 1px solid var(--border-color);
+
                 padding-top: 20px;
+
             }
+
+
+            .content h1 {
+
+                font-size: 2.2rem;
+
+            }
+
         }
+
     </style>
+
 </head>
-<body class="lang-en-active">
+
+
+<body class="lang-pt-active">
+
 
     <div class="layout-grid">
-        
+
+
+        <!-- =================================================
+             BARRA LATERAL ESQUERDA
+        ================================================== -->
+
         <aside class="sidebar-left">
-            <img src="me.jpeg" alt="Ana Beatriz" class="profile-pic">
-            
-            <h2 class="lang-en">Academic Background</h2>
-            <h2 class="lang-pt">Formação Acadêmica</h2>
-            
-            <p class="lang-en"><strong>Control & Automation Engineering Student</strong></p>
-            <p class="lang-pt"><strong>Estudante de Engenharia de Controle e Automação</strong></p>
-            
-            <p class="lang-en">Federal University of Bahia (UFBA)</p>
-            <p class="lang-pt">Universidade Federal da Bahia (UFBA)</p>
-            
-            <p class="lang-en">Expected graduation: 2027</p>
-            <p class="lang-pt">Previsão de formatura: 2027</p>
 
-            <h2>Links</h2>
+
+            <!-- FOTO -->
+
+            <img src="me.jpeg"
+                 alt="Ana Beatriz Alves Hougaz"
+                 class="profile-pic">
+
+
+            <!-- =================================================
+                 FORMAÇÃO
+            ================================================== -->
+
+            <h2 class="lang-en">
+                Academic Background
+            </h2>
+
+            <h2 class="lang-pt">
+                Formação Acadêmica
+            </h2>
+
+
+            <p>
+
+                <strong class="lang-en">
+                    Control & Automation Engineering
+                </strong>
+
+                <strong class="lang-pt">
+                    Engenharia de Controle e Automação
+                </strong>
+
+            </p>
+
+
+            <p class="lang-en">
+                Federal University of Bahia (UFBA)
+            </p>
+
+            <p class="lang-pt">
+                Universidade Federal da Bahia (UFBA)
+            </p>
+
+
+            <p class="lang-en">
+                Expected graduation: 2027
+            </p>
+
+            <p class="lang-pt">
+                Previsão de formatura: 2027
+            </p>
+
+
+            <!-- =================================================
+                 LINKS
+            ================================================== -->
+
+            <h2>
+                Links
+            </h2>
+
+
             <ul>
-                <li><a href="https://www.linkedin.com/in/ana-beatriz-alves-hougaz" target="_blank">LinkedIn</a></li>
-                <li><a href="https://github.com/AnaHougaz" target="_blank">GitHub</a></li>
-                <li><a href="https://lattes.cnpq.br/5312213893377587" target="_blank">Currículo Lattes</a></li>
-                <li><a href="mailto:ana.hougaz@ufba.br" target="_blank">E-mail</a></li>
+
+                <li>
+
+                    <a href="https://www.linkedin.com/in/ana-beatriz-alves-hougaz"
+                       target="_blank">
+
+                        LinkedIn
+
+                    </a>
+
+                </li>
+
+
+                <li>
+
+                    <a href="https://github.com/AnaHougaz"
+                       target="_blank">
+
+                        GitHub
+
+                    </a>
+
+                </li>
+
+
+                <li>
+
+                    <a href="https://lattes.cnpq.br/5312213893377587"
+                       target="_blank">
+
+                        Currículo Lattes
+
+                    </a>
+
+                </li>
+
+
+                <li>
+
+                    <a href="mailto:ana.hougaz@ufba.br">
+
+                        E-mail
+
+                    </a>
+
+                </li>
+
             </ul>
 
-            <h2 class="lang-en">Languages</h2>
-            <h2 class="lang-pt">Idiomas</h2>
+
+            <!-- =================================================
+                 CERTIFICADOS
+            ================================================== -->
+
+            <h2 class="lang-en">
+                Certificates
+            </h2>
+
+            <h2 class="lang-pt">
+                Certificados
+            </h2>
+
+
             <ul>
-                <li class="lang-en">Portuguese (Native)</li>
-                <li class="lang-pt">Português (Nativo)</li>
-                <li class="lang-en">English (Advanced)</li>
-                <li class="lang-pt">Inglês (Avançado)</li>
+
+                <li>
+
+                    <a href="certificados/index.html"
+                       class="certificate-link">
+
+                        <i class="fa-regular fa-folder-open"></i>
+
+                        <span class="lang-en">
+                            View certificates
+                        </span>
+
+                        <span class="lang-pt">
+                            Ver certificados
+                        </span>
+
+                    </a>
+
+                </li>
+
             </ul>
 
-            <h2 class="lang-en">Research Lines</h2>
-            <h2 class="lang-pt">Linhas de Pesquisa</h2>
-            <ul class="lang-en">
-                <li>Nonlinear Dynamics Modeling</li>
-                <li>UAV Systems</li>
-                <li>Photogrammetry</li>
-                <li>Computer Vision</li>
-                <li>Deep learning</li>
+
+            <!-- =================================================
+                 IDIOMAS
+            ================================================== -->
+
+            <h2 class="lang-en">
+                Languages
+            </h2>
+
+            <h2 class="lang-pt">
+                Idiomas
+            </h2>
+
+
+            <ul>
+
+                <li class="lang-en">
+                    Portuguese (Native)
+                </li>
+
+                <li class="lang-pt">
+                    Português (Nativo)
+                </li>
+
+
+                <li class="lang-en">
+                    English (Advanced)
+                </li>
+
+                <li class="lang-pt">
+                    Inglês (Avançado)
+                </li>
+
             </ul>
-            <ul class="lang-pt">
-                <li>Modelagem de Dinâmica Não-Linear</li>
-                <li>Sistemas de VANTs</li>
-                <li>Fotogrametria</li>
-                <li>Visão Computacional</li>
-                <li>Deep Learning</li>
-            </ul>
+
+
         </aside>
+
+
+        <!-- =================================================
+             CONTEÚDO PRINCIPAL
+        ================================================== -->
 
         <main class="content">
+
+
+            <!-- =================================================
+                 IDIOMA
+            ================================================== -->
+
             <div class="lang-switch">
-                <button id="btn-en" class="lang-btn active" onclick="switchLang('en')">EN</button>
-                <button id="btn-pt" class="lang-btn" onclick="switchLang('pt')">PT</button>
+
+                <button id="btn-en"
+                        class="lang-btn"
+                        onclick="switchLang('en')">
+
+                    EN
+
+                </button>
+
+
+                <button id="btn-pt"
+                        class="lang-btn active"
+                        onclick="switchLang('pt')">
+
+                    PT
+
+                </button>
+
             </div>
 
-            <h1>Ana Beatriz Alves Hougaz</h1>
-            
-            <p class="subtitle lang-en">Control & Automation Engineering - Computer Vision</p>
-            <p class="subtitle lang-pt">Engenharia de Controle e Automação - Visão Computacional</p>
 
-            <p class="lang-en" style="text-align: justify; font-weight: 500;">
-                Modeling and Control of dynamic systems | Mathematical control theory | Deep Learning | Computer Vision | Photogrammetry
-            </p>
-            <p class="lang-pt" style="text-align: justify; font-weight: 500;">
-                Modelagem e Controle de sistemas dinâmicos | Teoria de controle matemático | Deep Learning | Visão Computacional | Fotogrametria
-            </p>
+            <!-- =================================================
+                 NOME
+            ================================================== -->
 
-            <h3 class="lang-en">Publications</h3>
-            <h3 class="lang-pt">Publicações</h3>
+            <h1>
+                Ana Beatriz Alves Hougaz
+            </h1>
+
+
+            <!-- =================================================
+                 PUBLICAÇÕES
+            ================================================== -->
+
+            <h3 class="lang-en">
+                Publications
+            </h3>
+
+            <h3 class="lang-pt">
+                Publicações
+            </h3>
+
+
+            <div class="timeline">
+
+
+                <!-- =================================================
+                     2026 — SIBGRAPI
+                ================================================== -->
+
+                <div class="timeline-item">
+
+                    <div class="timeline-date">
+                        2026
+                    </div>
+
+
+                    <h4 class="timeline-title">
+
+                        Evaluating the Applicability of IEC 62676-4
+                        Image Resolution Standard to Deep Neural Networks
+                        Using Photogrammetry Criteria
+
+                    </h4>
+
+
+                    <p class="timeline-role">
+
+                        SIBGRAPI 2026 |
+                        Visão Computacional & Fotogrametria |
+                        2026
+
+                    </p>
+
+
+                    <a href="http://sibgrapi.sid.inpe.br/ibi/6qtX3pFwXQZeBBx/pBvav?query=conferencename+SIBGRAPI+39"
+                       class="btn"
+                       target="_blank">
+
+                        Ver Publicação
+
+                    </a>
+
+                </div>
+
+
+                <!-- =================================================
+                     2025 — SIINTEC
+                ================================================== -->
+
+                <div class="timeline-item">
+
+                    <div class="timeline-date">
+                        2025
+                    </div>
+
+
+                    <h4 class="timeline-title">
+
+                        UAV-Driven Maritime Object Detection and
+                        Classification: Literature Review of AI Models,
+                        Data and Performance
+
+                    </h4>
+
+
+                    <p class="timeline-role">
+
+                        SENAI CIMATEC |
+                        Sistemas de VANTs & IA |
+                        2025
+
+                    </p>
+
+
+                    <a href="https://jbth.com.br/index.php/JBTH/article/view/665"
+                       class="btn"
+                       target="_blank">
+
+                        Ver Publicação
+
+                    </a>
+
+                </div>
+
+
+                <!-- =================================================
+                     2024 — VISAPP
+                ================================================== -->
+
+                <div class="timeline-item">
+
+                    <div class="timeline-date">
+                        2024
+                    </div>
+
+
+                    <h4 class="timeline-title">
+
+                        Multi-Task Learning Based on Log Dynamic Loss
+                        Weighting for Sex Classification and Age Estimation
+                        on Panoramic Radiographs
+
+                    </h4>
+
+
+                    <p class="timeline-role">
+
+                        VISAPP 2024, Roma, Itália |
+                        Deep Learning |
+                        2024
+
+                    </p>
+
+
+                    <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.scitepress.org/PublishedPapers/2024/123171/&ved=2ahUKEwihxcDs96WXAxUOpZUCHV1HJEkQFnoECCQQAQ&usg=AOvVaw3gnnV8XT4uQDFrr4_bfzEU"
+                       class="btn"
+                       target="_blank">
+
+                        Ver Publicação
+
+                    </a>
+
+                </div>
+
+
+                <!-- =================================================
+                     2023 — SBCAS
+                ================================================== -->
+
+                <div class="timeline-item">
+
+                    <div class="timeline-date">
+                        2023
+                    </div>
+
+
+                    <h4 class="timeline-title">
+
+                        Sex Estimation on Panoramic Dental Radiographs:
+                        A Methodological Approach
+
+                    </h4>
+
+
+                    <p class="timeline-role">
+
+                        SBCAS 2023, São Paulo |
+                        Deep Learning & Saúde |
+                        2023
+
+                    </p>
+
+
+                    <a href="https://sol.sbc.org.br/index.php/sbcas/article/view/25282"
+                       class="btn"
+                       target="_blank">
+
+                        Ver Publicação
+
+                    </a>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 EXPERIÊNCIA ACADÊMICA E DE PESQUISA
+            ================================================== -->
+
+            <h3 class="lang-en">
+                Academic & Research Experience
+            </h3>
+
+            <h3 class="lang-pt">
+                Experiência Acadêmica e de Pesquisa
+            </h3>
+
+
+            <div class="timeline">
+
+
+                <!-- =================================================
+                     LaR
+                ================================================== -->
+
+                <div class="timeline-item">
+
+                    <div class="timeline-date">
+                        2026.2 – Present
+                    </div>
+
+
+                    <h4 class="timeline-title">
+
+                        LaR – Laboratório de Robótica (UFBA)
+
+                    </h4>
+
+
+                    <p class="timeline-role">
+
+                        Pesquisadora Voluntária
+
+                    </p>
+
+
+                    <div class="timeline-description">
+
+                        <p>
+
+                            Atuação em pesquisa nas áreas de robótica e
+                            automação, envolvendo manipulação robótica,
+                            visão computacional e sistemas robóticos.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     SENAI CIMATEC
+                ================================================== -->
+
+                <div class="timeline-item">
+
+                    <div class="timeline-date">
+                        2026 – Present
+                    </div>
+
+
+                    <h4 class="timeline-title">
+
+                        SENAI CIMATEC – Centro de Competência em Drones
+
+                    </h4>
+
+
+                    <p class="timeline-role">
+
+                        Bolsista de Pesquisa – Sistemas de VANTs e
+                        Visão Computacional
+
+                    </p>
+
+
+                    <div class="timeline-description">
+
+                        <p>
+
+                            Atuação em pesquisa e desenvolvimento com foco
+                            em sistemas de VANTs, visão computacional,
+                            processamento de imagens, detecção de objetos
+                            e percepção baseada em câmeras.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     MONITORIA
+                ================================================== -->
+
+                <div class="timeline-item">
+
+                    <div class="timeline-date">
+                        2026.1
+                    </div>
+
+
+                    <h4 class="timeline-title">
+
+                        Universidade Federal da Bahia
+
+                    </h4>
+
+
+                    <p class="timeline-role">
+
+                        Monitora de Processos de Fabricação
+
+                    </p>
+
+
+                    <div class="timeline-description">
+
+                        <p>
+
+                            Apoio acadêmico a estudantes de graduação em
+                            conceitos teóricos e práticos de processos de
+                            fabricação, como monitora bolsista.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     IVisionLab
+                ================================================== -->
+
+                <div class="timeline-item">
+
+                    <div class="timeline-date">
+                        January 2021 – early 2024
+                    </div>
+
+
+                    <h4 class="timeline-title">
+
+                        IVisionLab – Laboratório de Pesquisa em
+                        Visão Inteligente (UFBA)
+
+                    </h4>
+
+
+                    <p class="timeline-role">
+
+                        Iniciação Científica — Deep Learning e
+                        Visão Computacional
+
+                    </p>
+
+
+                    <div class="timeline-description">
+
+                        <p>
+
+                            Iniciação Científica em deep learning e visão
+                            computacional, com foco no desenvolvimento de
+                            algoritmos de aprendizado de máquina para
+                            classificação de sexo a partir de radiografias
+                            panorâmicas odontológicas.
+
+                        </p>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 PROJETOS DA GRADUAÇÃO
+            ================================================== -->
+
+            <h3 class="lang-en">
+                Undergraduate Projects
+            </h3>
+
+            <h3 class="lang-pt">
+                Projetos da Graduação
+            </h3>
+
+
+            <!-- =================================================
+                 PROJETO — SUSPENSÃO
+            ================================================== -->
 
             <div class="project-item">
-                <h4>UAV-Driven Maritime Object Detection</h4>
-                <div class="project-date lang-en">SENAI CIMATEC | UAV Systems & AI | 2025</div>
-                <div class="project-date lang-pt">SENAI CIMATEC | Sistemas de VANTs & IA | 2025</div>
-                <p class="lang-en">Co-author of the published article "UAV-Driven Maritime Object Detection and Classification: Literature Review of AI Models, Data and Performance" at the XI SIINTEC (2025).</p>
-                <p class="lang-pt">Coautora do artigo publicado "UAV-Driven Maritime Object Detection and Classification: Literature Review of AI Models, Data and Performance" no XI SIINTEC (2025).</p>
-                <p><strong>DOI:</strong> <a href="https://doity.com.br/anais/senaicimatec/trabalho/473432" target="_blank" style="text-decoration: underline; color: var(--text-main);">https://doity.com.br/anais/senaicimatec/trabalho/473432</a></p>
+
+                <h4 class="timeline-title lang-en">
+
+                    Active Quarter-Car Suspension System
+
+                </h4>
+
+
+                <h4 class="timeline-title lang-pt">
+
+                    Sistema de Suspensão Ativa de Quarto de Carro
+
+                </h4>
+
+
+                <p class="timeline-role">
+
+                    MATLAB & Simulink | 2025
+
+                </p>
+
+
+                <p class="lang-en">
+
+                    Mathematical modeling and simulation of an actively
+                    actuated vehicle suspension.
+
+                </p>
+
+
+                <p class="lang-pt">
+
+                    Modelagem matemática e simulação de uma suspensão
+                    veicular com atuação ativa.
+
+                </p>
+
+
+                <a href="https://github.com/AnaHougaz/Active_suspension"
+                   class="btn lang-en"
+                   target="_blank">
+
+                    View Repository
+
+                </a>
+
+
+                <a href="https://github.com/AnaHougaz/Active_suspension"
+                   class="btn lang-pt"
+                   target="_blank">
+
+                    Ver Repositório
+
+                </a>
+
             </div>
+
+
+            <!-- =================================================
+                 PROJETO — DOIS TANQUES
+            ================================================== -->
 
             <div class="project-item">
-                <h4>Multi-Task Learning on Panoramic Radiographs</h4>
-                <div class="project-date">IvisionLab (UFBA) | Deep Learning | 2024</div>
-                <p class="lang-en">Co-author of the published article "Multi-Task Learning Based on Log Dynamic Loss Weighting for Sex Classification and Age Estimation on Panoramic Radiographs".</p>
-                <p class="lang-pt">Coautora do artigo publicado "Multi-Task Learning Based on Log Dynamic Loss Weighting for Sex Classification and Age Estimation on Panoramic Radiographs".</p>
-                <p><strong>DOI:</strong> <a href="https://www.scitepress.org/Link.aspx?doi=10.5220/0012317100003660" target="_blank" style="text-decoration: underline; color: var(--text-main);">https://www.scitepress.org/Link.aspx?doi=10.5220/0012317100003660</a></p>
+
+                <h4 class="timeline-title lang-en">
+
+                    Coupled Two-Tank System Dynamics
+
+                </h4>
+
+
+                <h4 class="timeline-title lang-pt">
+
+                    Dinâmica de Sistema de Dois Tanques Acoplados
+
+                </h4>
+
+
+                <p class="timeline-role">
+
+                    Python, SciPy & SymPy | 2024
+
+                </p>
+
+
+                <p class="lang-en">
+
+                    Derived nonlinear differential equations for a classic
+                    hydraulic benchmark.
+
+                </p>
+
+
+                <p class="lang-pt">
+
+                    Dedução de equações diferenciais não-lineares para
+                    um benchmark hidráulico clássico.
+
+                </p>
+
+
+                <a href="https://github.com/AnaHougaz/Nonlinear-Dynamic-Modeling-and-Stability-Analysis-of-a-Coupled-Tank-System"
+                   class="btn lang-en"
+                   target="_blank">
+
+                    View Repository
+
+                </a>
+
+
+                <a href="https://github.com/AnaHougaz/Nonlinear-Dynamic-Modeling-and-Stability-Analysis-of-a-Coupled-Tank-System"
+                   class="btn lang-pt"
+                   target="_blank">
+
+                    Ver Repositório
+
+                </a>
+
             </div>
 
-            <div class="project-item">
-                <h4>Sex Estimation on Panoramic Dental Radiographs</h4>
-                <div class="project-date lang-en">IvisionLab (UFBA) | Deep Learning & Healthcare | 2023</div>
-                <div class="project-date lang-pt">IvisionLab (UFBA) | Deep Learning & Saúde | 2023</div>
-                <p class="lang-en">Author of the published article "Sex estimation on panoramic dental radiographs: A methodological approach" at the XXIII Simpósio Brasileiro de Computação Aplicada à Saúde (SBCAS 2023).</p>
-                <p class="lang-pt">Autora do artigo publicado "Sex estimation on panoramic dental radiographs: A methodological approach" no XXIII Simpósio Brasileiro de Computação Aplicada à Saúde (SBCAS 2023).</p>
-                <p><strong>DOI:</strong> <a href="https://doi.org/10.5753/sbcas.2023.229563"target="_blank" style="text-decoration: underline; color: var(--text-main);">https://doi.org/10.5753/sbcas.2023.229563</a></p>
-            </div>
 
-            <h3 class="lang-en">Academic & Lab Experience</h3>
-            <h3 class="lang-pt">Experiência Acadêmica e de Laboratório</h3>
-
-            <div class="project-item">
-                <h4 class="lang-en">Volunteer Researcher at LaR (Robotics Laboratory)</h4>
-                <h4 class="lang-pt">Pesquisadora Voluntária no LaR (Laboratório de Robótica)</h4>
-                <div class="project-date lang-en">Escola Politécnica (UFBA) | Robotics & Automation | 2026.2 - Present</div>
-                <div class="project-date lang-pt">Escola Politécnica (UFBA) | Robótica e Automação | 2026.2 - Atual</div>
-                <p class="lang-en">Currently collaborating as a volunteer researcher at the Robotics Laboratory, exploring potential research avenues and defining the core project framework.</p>
-                <p class="lang-pt">Atualmente colaborando como pesquisadora voluntária no Laboratório de Robótica, explorando potenciais caminhos de pesquisa e definindo o escopo do projeto principal.</p>
-            </div>
-
-            <div class="project-item">
-                <h4 class="lang-en">Manufacturing Processes Teaching Assistant</h4>
-                <h4 class="lang-pt">Monitoria de Processos de Fabricação</h4>
-                <div class="project-date lang-en">UFBA | Academic Monitor (Scholarship Holder) | 2026.1</div>
-                <div class="project-date lang-pt">UFBA | Monitoria Acadêmica (Bolsista) | 2026.1</div>
-                <p class="lang-en">Provided guidance and academic support to undergraduate students in both theoretical and practical manufacturing concepts, holding a monitor scholarship.</p>
-                <p class="lang-pt">Prestação de orientação e suporte acadêmico a alunos de graduação em conceitos teóricos e práticos de fabricação, atuando como monitora bolsista.</p>
-            </div>
-
-            <h3 class="lang-en">Engineering & Control Projects</h3>
-            <h3 class="lang-pt">Projetos de Engenharia e Controle</h3>
-
-            <div class="project-item">
-                <h4 class="lang-en">Active Quarter-Car Suspension System</h4>
-                <h4 class="lang-pt">Sistema de Suspensão Ativa de Quarto de Carro</h4>
-                <div class="project-date">MATLAB & Simulink | 2025</div>
-                <p class="lang-en">Mathematical modeling and simulation of an actively actuated vehicle suspension.</p>
-                <p class="lang-pt">Modelagem matemática e simulação de uma suspensão veicular com atuação ativa.</p>
-                <a href="https://github.com/AnaHougaz/Active_suspension" class="btn lang-en" target="_blank">View Repository</a>
-                <a href="https://github.com/AnaHougaz/Active_suspension" class="btn lang-pt" target="_blank">Ver Repositório</a>
-            </div>
-
-            <div class="project-item">
-                <h4 class="lang-en">Coupled Two-Tank System Dynamics</h4>
-                <h4 class="lang-pt">Dinâmica de Sistema de Dois Tanques Acoplados</h4>
-                <div class="project-date">Python, SciPy & SymPy | 2024</div>
-                <p class="lang-en">Derived nonlinear differential equations for a classic hydraulic benchmark.</p>
-                <p class="lang-pt">Dedução de equações diferenciais não-lineares para um benchmark hidráulico clássico.</p>
-                <a href="https://github.com/AnaHougaz/Nonlinear-Dynamic-Modeling-and-Stability-Analysis-of-a-Coupled-Tank-System" class="btn lang-en" target="_blank">View Repository</a>
-                <a href="https://github.com/AnaHougaz/Nonlinear-Dynamic-Modeling-and-Stability-Analysis-of-a-Coupled-Tank-System" class="btn lang-pt" target="_blank">Ver Repositório</a>
-            </div>
-            
         </main>
 
+
+        <!-- =================================================
+             BARRA DE ÍCONES DIREITA
+        ================================================== -->
+
         <aside class="sidebar-right">
-            <i class="fas fa-laptop-code" title="Software Development"></i>
-            <i class="fas fa-plane-up" title="Aerospace / Flight Control"></i>
-            <i class="fas fa-robot" title="Robotics & Automation"></i>
-            <i class="fas fa-car-side" title="Vehicle Dynamics"></i>
-            <i class="fas fa-chart-line" title="System Modeling"></i>
+
+
+            <i class="fas fa-laptop-code"
+               title="Software Development">
+            </i>
+
+
+            <i class="fas fa-plane-up"
+               title="UAV">
+            </i>
+
+
+            <i class="fas fa-robot"
+               title="Robotics">
+            </i>
+
+
+            <i class="fas fa-car-side"
+               title="Vehicle Dynamics">
+            </i>
+
+
+            <i class="fas fa-chart-line"
+               title="System Modeling">
+            </i>
+
+
         </aside>
 
-    </div> 
-    
+
+    </div>
+
+
+    <!-- =================================================
+         RODAPÉ
+    ================================================== -->
+
     <footer>
-        <p class="lang-en" style="text-align: center; font-size: 0.9rem; color: #666; margin: 0;">
-            © 2026 Ana Beatriz. All rights reserved
+
+        <p class="lang-en"
+           style="text-align:center;
+                  font-size:0.8rem;
+                  color:#707070;
+                  margin:0;">
+
+            © 2026 Ana Beatriz. All rights reserved.
+
         </p>
-        <p class="lang-pt" style="text-align: center; font-size: 0.9rem; color: #666; margin: 0;">
-            © 2026 Ana Beatriz. Todos os direitos reservados
+
+
+        <p class="lang-pt"
+           style="text-align:center;
+                  font-size:0.8rem;
+                  color:#707070;
+                  margin:0;">
+
+            © 2026 Ana Beatriz. Todos os direitos reservados.
+
         </p>
+
     </footer>
 
+
+    <!-- =================================================
+         JAVASCRIPT — IDIOMAS
+    ================================================== -->
+
     <script>
+
         function switchLang(lang) {
+
             if (lang === 'pt') {
+
                 document.body.classList.remove('lang-en-active');
+
                 document.body.classList.add('lang-pt-active');
-                document.getElementById('btn-pt').classList.add('active');
-                document.getElementById('btn-en').classList.remove('active');
-            } else {
-                document.body.classList.remove('lang-pt-active');
-                document.body.classList.add('lang-en-active');
-                document.getElementById('btn-en').classList.add('active');
-                document.getElementById('btn-pt').classList.remove('active');
+
+
+                document.getElementById('btn-pt')
+                    .classList.add('active');
+
+
+                document.getElementById('btn-en')
+                    .classList.remove('active');
+
             }
+
+            else {
+
+                document.body.classList.remove('lang-pt-active');
+
+                document.body.classList.add('lang-en-active');
+
+
+                document.getElementById('btn-en')
+                    .classList.add('active');
+
+
+                document.getElementById('btn-pt')
+                    .classList.remove('active');
+
+            }
+
         }
+
     </script>
 
+
 </body>
+
 </html>
